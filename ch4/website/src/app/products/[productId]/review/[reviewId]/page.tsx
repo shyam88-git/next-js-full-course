@@ -1,4 +1,5 @@
 import React from "react";
+import { notFound } from "next/navigation";
 interface PropsI {
   params: {
     productId: number;
@@ -7,6 +8,9 @@ interface PropsI {
 }
 
 const page = ({ params }: PropsI) => {
+  if (params.reviewId > 1000) {
+    notFound();
+  }
   return (
     <div>
       productId is {params.productId} and reviw id is {params.reviewId}
